@@ -36,16 +36,20 @@ end
 describe Cat do
   # Create a subject with your choice of cat name and optional breed/color.
 
+  subject(:valkyrie) { described_class.new('Valkyrie', 'Persian', 'Black') }
   # Write a test using the second shared_example to test that cat responds to
   # talk ('meow').
-  context '' do
+  context 'when using shared example for talk method' do
+    include_examples 'shared method name'
   end
 
   # remove the 'x' before running this test
-  xit 'is not hungry' do
+  it 'is not hungry' do
+    expect(valkyrie).not_to be_hungry
   end
 
   # remove the 'x' before running this test
-  xit 'is hiding' do
+  it 'is hiding' do
+    expect(valkyrie).to be_hiding
   end
 end
